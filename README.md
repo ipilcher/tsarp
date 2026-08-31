@@ -30,8 +30,6 @@ Despite this, it is still useful.
 
 ## Use
 
-[`example.py`](example.py) demonstrates most of the library features.
-
 The basic usage pattern is:
 
  1. Create any custom types (instances of `tsarp.Type`).
@@ -44,3 +42,9 @@ The basic usage pattern is:
 
  4. `tsarp.parse()` returns an instance of the top-level schema class
     (containing instances of any subcommand schemas that were invoked).
+
+### See also
+
+  * [API documentation](https://ipilcher.github.io/tsarp/)
+  * [`example.py`](example.py)
+
