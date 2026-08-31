@@ -55,8 +55,6 @@ class ArgumentGroup(Group):
 
     .. NOTE: This docstring is included in the *public* API documentation.
     """
-#    :meta public:
-#    """
 
     title: str | None=None
     """See :func:`group`."""
@@ -91,8 +89,6 @@ class MXGroup(Group):
 
     .. NOTE: This docstring is included in the *public* API documentation.
     """
-#    :meta public:
-#    """
 
     required: bool=False
     """See :func:`mxgroup`."""
