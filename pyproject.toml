@@ -25,6 +25,7 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/ipilcher/tsarp"
+Documentation = "https://ipilcher.github.io/tsarp/"
 "Bug Tracker" = "https://github.com/ipilcher/tsarp/issues"
 
 [tool.flit.module]
