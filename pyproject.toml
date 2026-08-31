@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[build-system]
+requires = ["flit_core>=3.12"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tsarp"
+dynamic = ["version"]
+description = "Type-Safe Argument Parser"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "LGPL-3.0-or-later"
+license-files = ["lgpl-3.0.txt"]
+authors = [{name = "Ian Pilcher", email = "arequipeno@gmail.com"}]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/ipilcher/tsarp"
+"Bug Tracker" = "https://github.com/ipilcher/tsarp/issues"
+
+[tool.flit.module]
+name = "tsarp"
+
+[tool.flit.sdist]
+include = ["LICENSE", "lgpl-3.0.txt", "gpl-3.0.txt"]
