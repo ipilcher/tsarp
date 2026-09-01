@@ -42,3 +42,7 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/
+  copr-build:
+    needs: pypi-publish
+    uses: ./.github/workflows/copr-build.yml
+    secrets: inherit
