@@ -98,29 +98,14 @@ class ArgParserKwargs(typing.TypedDict, total=False):
     https://docs.python.org/3/library/argparse.html#epilog.
     """
 
-    parents: collections.abc.Sequence[argparse.ArgumentParser]
-    """See
-    https://docs.python.org/3/library/argparse.html#parents.
-    """
-
     formatter_class: type[argparse.HelpFormatter]
     """See
     https://docs.python.org/3/library/argparse.html#formatter-class.
     """
 
-    prefix_chars: str
-    """See
-    https://docs.python.org/3/library/argparse.html#prefix-chars.
-    """
-
     fromfile_prefix_chars: str
     """See
     https://docs.python.org/3/library/argparse.html#fromfile-prefix-chars.
-    """
-
-    conflict_handler: str
-    """See
-    https://docs.python.org/3/library/argparse.html#conflict-handler.
     """
 
     add_help: bool
@@ -167,18 +152,6 @@ class AddSubparsersKwargs(typing.TypedDict, total=False):
     """
 
     prog: str
-    """See
-    https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers.
-    """
-
-    parser_class: type[argparse.ArgumentParser]
-    """See
-    https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers.
-    """
-
-    # See https://github.com/python/typeshed/issues/16309
-    #action: str | type[argparse.Action]
-    action: type[argparse.Action]
     """See
     https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers.
     """
