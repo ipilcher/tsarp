@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: Trigger Fedora COPR Build (from MyPI source)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  copr-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Fedora COPR Build
+        run: curl -X POST ${{ secrets.COPR_WEBHOOK_URL }}
