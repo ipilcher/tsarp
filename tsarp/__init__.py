@@ -11,7 +11,7 @@ Copyright 2026 Ian Pilcher <arequipeno@gmail.com>
 import sys
 
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 
 if sys.version_info < (3, 14):
