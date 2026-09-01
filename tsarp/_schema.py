@@ -123,6 +123,31 @@ class SchemaDescriptor[T: Schema](_SchemaDescParent):
 class Schema:
     """Abstract base class for top-level and subcommand schemas.
 
+    The schema for a top-level or subcommand parser is created by defining a
+    subclass of this class.
+
+    For example:
+
+    .. code-block:: python
+
+        class StartCmdSchema(Schema, description="Start the server"):
+            foreground: bool = flag(...)
+
+        class StopCmdSchema(Schema, description="Stop the server"):
+            force: bool = flag(...)
+
+        class ServerCtlSchema(Schema, description="Control the server"):
+            verbose: bool = flag(...)
+            log_dest_grp = group(title="Log destination", ...)
+            log_dest_mx = mxgroup(group="log_dest_grp", ...)
+            stderr: bool = flag(group="log_dest_mx", ...)
+            syslog: bool = flag(group="log_dest_mx", ...)
+            file: str = opt(group="log_dest_mx", ...)
+            cmd: str | None = subcommands(...)
+            start: StartCmdSchema | None = subcmd(StartCmdSchema, ...)
+            stop: StopCmdSchema | None = subcmd(StopCmdSchema, ...)
+
+
     .. NOTE:
         Class parameter documentation is automatically pulled from the
         __init_subclass__ Args: section by the inject_init_subclass_params
@@ -141,7 +166,7 @@ class Schema:
             cls,
             *,
             custom_types: collections.abc.Iterable[_type.Type[typing.Any]] = (),
-            **parser_kwargs: typing.Unpack[_kwargs.ArgParserKwargs]
+            **kwargs: typing.Unpack[_kwargs.ArgParserKwargs]
     ) -> None:
         """Creates a :class:`SchemaDescriptor` for every concrete subclass of
         :class:`Schema`.
@@ -151,10 +176,10 @@ class Schema:
         Args:
             custom_types: Custom types to be registered with the schema's
                 parsers.  (See `Registering custom types or actions`_.)
-            parser_kwargs: Arguments passed to the schema's parser constructors.
-                A parser constructor is either :class:`ArgumentParser()
-                <argparse.ArgumentParser>` (for a top-level parser) or
-                :meth:`~argparse.add_parser` (for a subcommand parser).
+            kwargs: Keyword arguments that will be passed to the schema's parser
+                constructors.  (A parser constructor is either
+                :class:`ArgumentParser() <argparse.ArgumentParser>` or
+                :meth:`~argparse.add_parser`.
 
         Note:
             This function's parameter documentation is automatically copied to
