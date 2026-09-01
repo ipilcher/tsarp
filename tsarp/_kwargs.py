@@ -118,11 +118,6 @@ class ArgParserKwargs(typing.TypedDict, total=False):
     https://docs.python.org/3/library/argparse.html#fromfile-prefix-chars.
     """
 
-    argument_default: object
-    """See
-    https://docs.python.org/3/library/argparse.html#argument-default.
-    """
-
     conflict_handler: str
     """See
     https://docs.python.org/3/library/argparse.html#conflict-handler.
