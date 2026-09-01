@@ -484,6 +484,10 @@ def param[T](
 ) -> T:
     """Define a parameter (positional argument).
 
+    Important:
+        This function should only be called inside a :class:`Schema` subclass
+        definition.
+
     Note:
       * When the :arg:`type` argument is not provided, its value can sometimes
         be inferred from the parameter's type hint.  This is only possible if
@@ -519,6 +523,14 @@ def param[T](
         metavar: See https://docs.python.org/3/library/argparse.html#metavar.
         deprecated: See
             https://docs.python.org/3/library/argparse.html#deprecated.
+
+    Returns:
+        An opaque descriptor that represents the parameter.
+
+    Note:
+        The stated return type (``T``) represents the type of the target
+        attribute in a parsed schema instance, not the runtime type of the
+        descriptor.
     """
     p = Parameter(
         default=default,
@@ -625,6 +637,10 @@ def opt[T](
 ) -> T:
     """Define an option (a non-positional argument that takes a value).
 
+    Important:
+        This function should only be called inside a :class:`Schema` subclass
+        definition.
+
     Note:
         When the :arg:`type` argument is not provided, its value can sometimes
         be inferred from the option's type hint.  This is only possible if the
@@ -651,6 +667,14 @@ def opt[T](
         metavar: See https://docs.python.org/3/library/argparse.html#metavar.
         deprecated: See
             https://docs.python.org/3/library/argparse.html#deprecated.
+
+    Returns:
+        An opaque descriptor that represents the option.
+
+    Note:
+        The stated return type (``T``) represents the type of the target
+        attribute in a parsed schema instance, not the runtime type of the
+        descriptor.
     """
     o = Option(
         default=default,
@@ -747,6 +771,10 @@ def flag(
 ) -> bool:
     """Define a boolean flag.
 
+    Important:
+        This function should only be called inside a :class:`Schema` subclass
+        definition.
+
     Args:
         group: The name of the argument group to which the flag will be added
             (if any).
@@ -755,6 +783,14 @@ def flag(
         help: See https://docs.python.org/3/library/argparse.html#help.
         deprecated: See
             https://docs.python.org/3/library/argparse.html#deprecated.
+
+    Returns:
+        An opaque descriptor that represents the flag.
+
+    Note:
+        The stated return type (``bool``) represents the type of the target
+        attribute in a parsed schema instance, not the runtime type of the
+        descriptor.
     """
     f = Flag(
         group=group,

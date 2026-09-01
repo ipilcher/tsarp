@@ -227,9 +227,9 @@ def subcmd[T: Schema](schema_cls: type[T]) -> T | None:
         An opaque descriptor that represents the schema.
 
     Note:
-        The stated return type (``T | None``) represents the potential values of
-        the target attribute in a parsed schema instance, not the runtime type
-        of the descriptor.
+        The stated return type (``T | None``) represents the type of the target
+        attribute in a parsed schema instance, not the runtime type of the
+        descriptor.
     """
     if not (isinstance(schema_cls, type) and issubclass(schema_cls, Schema)):
         raise TypeError(f"Not a subclass of Schema: {schema_cls!r}")
@@ -287,12 +287,12 @@ def subcommands(
             :meth:`~argparse.ArgumentParser.add_subparsers`.
 
     Returns:
-        An opaque descriptor.
+        An opaque descriptor that represents the schema's subcommand registry.
 
     Note:
-        The stated return type (``str | None``) reflects the potential values of
-        the target attribute in a parsed schema instance, not the runtime type
-        of the descriptor.
+        The stated return type (``str | None``) represents the type of the
+        target attribute in a parsed schema instance, not the runtime type of
+        the descriptor.
     """
     return typing.cast(str, Subcommands(**kwargs))
 
