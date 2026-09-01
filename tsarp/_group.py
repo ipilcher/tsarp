@@ -68,6 +68,10 @@ def group(
 ) -> ArgumentGroup:
     """Creates an argument group descriptor.
 
+    Important:
+        This function should only be called inside a :class:`Schema` subclass
+        definition.
+
     Args:
         title: The argument group title.
         description: The argument group description.
@@ -99,6 +103,10 @@ class MXGroup(Group):
 
 def mxgroup(*, required: bool=False, group: str | None=None) -> MXGroup:
     """Creates a mutually exclusive group descriptor.
+
+    Important:
+        This function should only be called inside a :class:`Schema` subclass
+        definition.
 
     Args:
         required: If ``True``, one of the options in the group must be provided.
